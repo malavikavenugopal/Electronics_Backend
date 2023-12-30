@@ -35,9 +35,6 @@ plServer.use(express.json())
 plServer.use(router)
 
 
-// 8)  multerMiddleware (to uploads files to uploads folder)
-plServer.use('/uploads',express.static('./uploads'))
-
 
 // 9) custome the port
 

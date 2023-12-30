@@ -34,6 +34,7 @@ const products = require('../Models/productSchema')
                 color,
                 price,
                 adminid
+                
                 })
                      await newProduct.save()
           
