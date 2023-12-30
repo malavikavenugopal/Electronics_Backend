@@ -48,6 +48,10 @@ const productSchema = new mongoose.Schema({
     price: {
         type: String,
         require:true
+    },
+    adminid:{
+        type: String,
+        require:true
     }
 
 })

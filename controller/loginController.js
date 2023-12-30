@@ -30,7 +30,7 @@ exports.register = async (req, res)=>{
                 email,
                 password,
 
-            }
+            })
 
             // 2) add the object use save() method in mongoose
 
@@ -60,7 +60,7 @@ exports.login = async (req, res) => {
         if (existingadmin) {
 
             //create token using sign method
-            const token = jwt.sign({ admin: existingadmin._id }, "supersecretkey1234")
+            const token = jwt.sign({admin: existingadmin._id }, "supersecretkey1234")
             res.status(200).json(
                 {
                     existingadmin, token
