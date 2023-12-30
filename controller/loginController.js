@@ -26,12 +26,11 @@ exports.register = async (req, res)=>{
         }else{
             // if finOne returns null, it mean the email or the user does not exist in the databse
            
-
             const newUser = new login({
                 email,
                 password,
 
-            })
+            }
 
             // 2) add the object use save() method in mongoose
 
