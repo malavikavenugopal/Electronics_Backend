@@ -2,7 +2,7 @@
 const login = require('../Models/loginSchema')
 
 //import jwt
-//to ensure proper login and gave secret code to user
+
 const jwt = require("jsonwebtoken")
 
 // logic for register
@@ -11,20 +11,21 @@ exports.register = async (req, res)=>{
     // logic
     console.log('inside userAdmin-register logic');
 
-    // destructuring data from the client request body (since json format is comverted into javascript object by the .json( method used in index.js file))
+    // destructuring data from the client request body (since json format is converted into javascript object by the .json( method used in index.js file))
 
     const { email, password} = req.body
 
-    try {// since email is the unique value we are checking that email is already parent in the database
+    try {
+    // since email is the unique value thats why we are checked with email
     // for that we are using finOne method which return entire document when the condition is true else return null
     
         const existingadmin = await login.findOne({email})
         if(existingadmin){
-            // so we are sending a response in the 400 series
+          
             res.status(406).json('account already exist... please login')
 
         }else{
-            // if finOne returns null, it mean the email or the user does not exist in the databse
+            // if finOne returns null, it means the email or the user does not exist in the databse
            
             const newUser = new login({
                 email,
@@ -32,7 +33,7 @@ exports.register = async (req, res)=>{
 
             })
 
-            // 2) add the object use save() method in mongoose
+            // 2)save the object  in mongoose using save() method
 
             await newUser.save()
 
@@ -64,7 +65,7 @@ exports.login = async (req, res) => {
             res.status(200).json(
                 {
                     existingadmin, token
-                    //existingUser:existingUser
+                    //existingadmin:existingadmin
                 }
 
             )

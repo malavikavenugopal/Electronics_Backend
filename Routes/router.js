@@ -26,7 +26,7 @@ router.post('/register', loginController.register)
 router.post('/login', loginController.login)
 //     c)add products
 router.post('/product/add',jwtMiddleware,productsController.addProduct)
-//     d)get home poducts
+//     d)get all poducts
 router.get('/product/get',jwtMiddleware,productsController.getProduct)
 //     e)update products
 router.put('/product/edit/:id',jwtMiddleware,productsController.editProduct)
